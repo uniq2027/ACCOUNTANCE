@@ -1,0 +1,83 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <style>
+        .low { background-color: green; color: white; padding: 20px; border-radius: 10px; }
+        .medium { background-color: orange; color: white; padding: 20px; border-radius: 10px; }
+        .high { background-color: red; color: white; padding: 20px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <form method="POST">
+
+        {{ form.hidden_tag() }} 
+
+       <div>
+        {{ form.p.label }} 
+        {{form.p()}}
+
+       </div> 
+
+       <div>
+
+        {{form.n.label}}
+        {{form.n()}}
+       </div>
+      
+
+       <div>
+
+
+        {{form.r.label}}
+        {{form.r()}}
+        
+       </div>
+
+       {{form.submit()}}
+
+
+     
+   </form>
+    
+  <p>Interest Calculation Result: {{SI}}</p> 
+</body>
+</html> -->
+
+
+
+<style>
+    .low { background-color: green; color: white; padding: 20px; border-radius: 10px; }
+    .medium { background-color: orange; color: white; padding: 20px; border-radius: 10px; }
+    .high { background-color: red; color: white; padding: 20px; border-radius: 10px; }
+</style>
+
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <p>{{ form.p.label }} {{ form.p() }}</p>
+    <p> {{form.n.label}} {{form.n()}}</p>
+
+    <p> {{form.r.label}} {{form.r()}}</p>
+    <p>{{ form.submit() }}</p>
+</form>
+
+
+
+
+{% if SI is not none %}
+    <h3>Simple Interest: {{ SI }}</h3>
+    <h3>total AMOUNT:{{SI+p}}</h3>
+    <a href="{{ url_for('interest_call') }}">FIND TOTAL AMOUNT  </a>
+
+     <div class="{% if amount_category == 'Low' %}low{% elif amount_category == 'Medium' %}medium{% else %}high{% endif %}">
+            <h3>Total Interest: ₹{{ SI }}</h3>
+            <h4>Category: {{ amount_category }}</h4>
+        </div>
+
+{% endif %}
+
+

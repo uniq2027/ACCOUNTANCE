@@ -1,0 +1,10 @@
+✅ 1. Default Rendering (Recommended)\
+✅ 2. Using Bootstrap Classes (For Better Styling)
+✅ 3. Looping Over Form Fields (Dynamic Rendering)
+✅ 4. Using form.as_p() (Compact Form Rendering)
+
+
+Flask-WTF, {{ form.as_p() }} does not work by default like in Django forms. However, you can manually implement a similar approach.
+
+✅ Supports Flask App Configuration
+If your app runs on different servers (localhost, production), url_for() ensures the correct URL is used.
